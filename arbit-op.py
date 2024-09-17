@@ -4,11 +4,11 @@ import time
 import sys
 
 # Detail jaringan
-private_key = ''  # GANTI DENGAN PRIVATE KEY ANDA
+private_key = 'a706a4db93918d69f4d3918ee8b5a024724526cd48b40e878e27c3a149cb838c'  # GANTI DENGAN PRIVATE KEY ANDA
 rpc_url = 'https://sepolia-rollup.arbitrum.io/rpc'  # JANGAN DIGANTI
 chain_id = 421614  # JANGAN DIGANTI
 contract_address = '0x8D86c3573928CE125f9b2df59918c383aa2B514D'  # JANGAN DIGANTI
-my_address = ''  # GANTI DENGAN ADDRESS EVM ANDA
+my_address = '0x71592a0fB4cbce6C0e1574a225F25f1FAd9c2Cc2'  # GANTI DENGAN ADDRESS EVM ANDA
 
 # Koneksi ke jaringan
 web3 = Web3(Web3.HTTPProvider(rpc_url))
