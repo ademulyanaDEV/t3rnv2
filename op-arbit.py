@@ -32,7 +32,7 @@ def send_bridge_transaction():
             'to': contract_address,
             'from': my_address,
             'data': data,
-            'value': web3.to_wei(0.01, 'ether')  # Mengirim 0.01 ETH
+            'value': web3.to_wei(0.1, 'ether')  # Mengirim 0.01 ETH
         })
         gas_limit = gas_estimate + 20000  # Tambahkan buffer gas
     except Exception as e:
@@ -43,7 +43,7 @@ def send_bridge_transaction():
     transaction = {
         'nonce': nonce,
         'to': contract_address,
-        'value': web3.to_wei(0.01, 'ether'),  # Mengirim 0.01 ETH
+        'value': web3.to_wei(0.1, 'ether'),  # Mengirim 0.01 ETH # IZIN YA BANG ADE
         'gas': gas_limit,  # Gunakan gas limit yang diestimasi
         'gasPrice': web3.eth.gas_price,
         'chainId': chain_id,
