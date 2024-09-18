@@ -1,3 +1,3 @@
-private_key_metamask = ''   #Private key metamask
-alamat_dompet  = ''    #alamat dompet metamask
-delay_transaksi = 30   #delay transaksi sesuai kebutuhan
+private_key_metamask = ''   # Isi dengan private key metamask
+alamat_dompet  = ''    # Alamat dompet metamask
+delay_transaksi = 20   # Delay transaksi sesuai kebutuhan
