@@ -4,12 +4,11 @@ import time
 import sys
 
 # Detail jaringan
-private_key = ''  # GANTI DENGAN PRIVATE KEY ANDA
+private_key = config.private_key_metamask.strip()
 rpc_url = 'https://sepolia.base.org'  # JANGAN DIGANTI
 chain_id = 84532  # JANGAN DIGANTI
 contract_address = '0x30A0155082629940d4bd9Cd41D6EF90876a0F1b5'  # JANGAN DIGANTI
-my_address = ''  # GANTI DENGAN ADDRESS EVM ANDA
-
+my_address = config.alamat_dompet
 # Koneksi ke jaringan
 web3 = Web3(Web3.HTTPProvider(rpc_url))
 if not web3.is_connected():
@@ -74,7 +73,7 @@ def send_multiple_transactions(num_transactions):
             if tx_hash:
                 successful_txs += 1
                 print(f"Tx Hash: {tx_hash} | Total Tx Sukses: {successful_txs}")
-            time.sleep(20)  # Delay 20 detik setiap transaksi
+            time.sleep(config.delay_transaksi)  # Delay 20 detik setiap transaksi
     except KeyboardInterrupt:
         print("\nScript dihentikan oleh pengguna.")
     print(f"Total transaksi sukses: {successful_txs}")

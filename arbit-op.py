@@ -2,13 +2,14 @@ from web3 import Web3
 from eth_account import Account
 import time
 import sys
+import config 
 
 # Detail jaringan
-private_key = 'a706a4db93918d69f4d3918ee8b5a024724526cd48b40e878e27c3a149cb838c'  # GANTI DENGAN PRIVATE KEY ANDA
+private_key = config.private_key_metamask.strip()
 rpc_url = 'https://sepolia-rollup.arbitrum.io/rpc'  # JANGAN DIGANTI
 chain_id = 421614  # JANGAN DIGANTI
 contract_address = '0x8D86c3573928CE125f9b2df59918c383aa2B514D'  # JANGAN DIGANTI
-my_address = '0x71592a0fB4cbce6C0e1574a225F25f1FAd9c2Cc2'  # GANTI DENGAN ADDRESS EVM ANDA
+my_address = config.alamat_dompet
 
 # Koneksi ke jaringan
 web3 = Web3(Web3.HTTPProvider(rpc_url))
@@ -74,7 +75,7 @@ def send_multiple_transactions(num_transactions):
             if tx_hash:
                 successful_txs += 1
                 print(f"Tx Hash: {tx_hash} | Total Tx Sukses: {successful_txs}")
-            time.sleep(20)  # Delay 20 detik setiap transaksi
+            time.sleep(config.delay_transaksi)  # Delay 20 detik setiap transaksi
     except KeyboardInterrupt:
         print("\nScript dihentikan oleh pengguna.")
     print(f"Total transaksi sukses: {successful_txs}")
