@@ -4,12 +4,11 @@ import time
 import sys
 
 # Detail jaringan
-private_key = ''  # GANTI DENGAN PRIVATE KEY ANDA
+private_key = config.private_key_metamask.strip()
 rpc_url = 'https://sepolia.blast.io'  # JANGAN DIGANTI
 chain_id = 168587773  # JANGAN DIGANTI
 contract_address = '0x1D5FD4ed9bDdCCF5A74718B556E9d15743cB26A2'  # JANGAN DIGANTI
-my_address = ''  # GANTI DENGAN ADDRESS EVM ANDA
-
+my_address = config.alamat_dompet
 # Koneksi ke jaringan
 web3 = Web3(Web3.HTTPProvider(rpc_url))
 if not web3.is_connected():
@@ -19,7 +18,7 @@ if not web3.is_connected():
 account = Account.from_key(private_key)
 
 # Data transaksi untuk bridge (Jangan Diganti)
-data = 'ISI DATA HEX MASING MASING'
+data = '0x56591d596f70737000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000032d0faf8fb05fcccd88d6e82431c3a37391c6cac000000000000000000000000000000000000000000000000002386e0fbe7ecd500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002386f26fc10000'
 
 # Fungsi untuk membuat dan mengirim transaksi
 def send_bridge_transaction():
@@ -32,7 +31,7 @@ def send_bridge_transaction():
             'to': contract_address,
             'from': my_address,
             'data': data,
-            'value': web3.to_wei(0.1, 'ether')  # Mengirim 0.01 ETH
+            'value': web3.to_wei(0.01, 'ether')  # Mengirim 0.01 ETH
         })
         gas_limit = gas_estimate + 20000  # Tambahkan buffer gas
     except Exception as e:
@@ -43,7 +42,7 @@ def send_bridge_transaction():
     transaction = {
         'nonce': nonce,
         'to': contract_address,
-        'value': web3.to_wei(0.1, 'ether'),  # Mengirim 0.01 ETH
+        'value': web3.to_wei(0.01, 'ether'),  # Mengirim 0.01 ETH
         'gas': gas_limit,  # Gunakan gas limit yang diestimasi
         'gasPrice': web3.eth.gas_price,
         'chainId': chain_id,
@@ -74,7 +73,7 @@ def send_multiple_transactions(num_transactions):
             if tx_hash:
                 successful_txs += 1
                 print(f"Tx Hash: {tx_hash} | Total Tx Sukses: {successful_txs}")
-            time.sleep(20)  # Delay 20 detik setiap transaksi
+            time.sleep(config.delay_transaksi)  # Delay 20 detik setiap transaksi
     except KeyboardInterrupt:
         print("\nScript dihentikan oleh pengguna.")
     print(f"Total transaksi sukses: {successful_txs}")

@@ -20,8 +20,9 @@
    - `base-blast.py`
    - `blast-base.py`
    - `op-arbit.py`
-
-4. **Jalankan Skrip Menggunakan Python**
+4. **Rubah file config.py**
+   isi dengan private key wallet dan address wallet EVM
+5. **Jalankan Skrip Menggunakan Python**
    ```bash
    python nama_skrip.py
    ```
