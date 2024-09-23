@@ -87,3 +87,4 @@ try:
 except ValueError:
     print("Input tidak valid, pastikan untuk memasukkan angka.")
     sys.exit(1)
+# end of program
