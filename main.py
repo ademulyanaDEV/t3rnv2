@@ -11,6 +11,8 @@ contract_address_method = '0xAEC9f9DbE3FC031c780d6AF2A489BD003F83E4a7'  # JANGAN
 contract_address_token = '0xcbEd09fA8F99dc709C23b5c46F002d9ec010FcDA'  # GANTI DENGAN CONTRACT ADDRESS TOKEN YANG INGIN DITUKAR
 my_address = ''  # GANTI DENGAN ADDRESS EVM ANDA
 
+#data bridge
+data = ''
 # Koneksi ke jaringan
 web3 = Web3(Web3.HTTPProvider(rpc_url))
 if not web3.is_connected():
